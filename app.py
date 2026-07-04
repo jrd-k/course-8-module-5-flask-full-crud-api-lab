@@ -17,8 +17,18 @@ events = [
     Event(2, "Python Workshop")
 ]
 
+def find_event(event_id):
+    """Helper to look up an event by id. Returns the Event or None."""
+    for event in events:
+        if event.id == event_id:
+            return event
+        return None
 # TODO: Task 1 - Define the Problem
 # Create a new event from JSON input
+@app.route("/")
+def index():
+    return jsonify({"message":"Welcome to the Events API"})
+
 @app.route("/events", methods=["POST"])
 def create_event():
     # TODO: Task 2 - Design and Develop the Code
